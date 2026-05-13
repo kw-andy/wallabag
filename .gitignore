@@ -63,3 +63,4 @@ web/custom.css
 
 yarn-error.log
 .git/
+.github/
