@@ -1,6 +1,7 @@
 # Configuration de wallabag
 
 > Version : 2.7.0-dev — Symfony / PHP 8.2
+> Voir aussi : [Déploiement et Docker](DEPLOIEMENT.md) · [Sauvegarde](SAUVEGARDE.md)
 
 ---
 
@@ -214,6 +215,8 @@ Les routes `/api/` et `/oauth/` acceptent toutes les origines (`*`) avec les mé
 ---
 
 ## 5. Déploiement Docker
+
+> Pour les commandes de démarrage, redémarrage automatique et sauvegarde, voir [DEPLOIEMENT.md](DEPLOIEMENT.md) et [SAUVEGARDE.md](SAUVEGARDE.md).
 
 ### `compose.yaml` (développement)
 
