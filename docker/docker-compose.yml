@@ -1,0 +1,47 @@
+version: '2'
+
+services:
+  wallabag:
+    image: wallabag/wallabag
+    container_name: wallabag
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wallabag
+      - MYSQL_PASSWORD=wallabag
+      - MYSQL_DATABASE=wallabag
+      - MYSQL_USER=wallabag
+      - SYMFONY__ENV__DOMAIN_NAME=https://wallabag.just-go.dev
+      - SYMFONY__ENV__FOSUSER_REGISTRATION=false
+    volumes:
+      - wallabag-data:/var/www/wallabag/data
+      - wallabag-images:/var/www/wallabag/web/assets/images
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8080:80"
+    networks:
+      - wallabag-net
+
+  db:
+    image: mariadb:10.6
+    container_name: wallabag-db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=wallabag
+      - MYSQL_DATABASE=wallabag
+      - MYSQL_USER=wallabag
+      - MYSQL_PASSWORD=wallabag
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - wallabag-net
+
+volumes:
+  wallabag-data:
+  wallabag-images:
+  db-data:
+
+networks:
+  wallabag-net:
+    driver: bridge
+

@@ -62,3 +62,4 @@ web/custom.css
 .env.local
 
 yarn-error.log
+.git/
